@@ -36,7 +36,7 @@ jobs:
         rm -r -- !(deploy)
         mv deploy/* .
         git add .
-        git commit -m "'"Push to Github Pages'
+        git commit -m 'Push to Github Pages'
         git push --force -u origin HEAD:gh-pages
       env:
         user_name: 'github-actions[bot]'
