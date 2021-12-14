@@ -163,6 +163,12 @@ module.exports = function (grunt) {
 					spawn: false
 				}
 			}
+		},
+		'gh-pages': {
+			options: {
+				base: 'deploy'
+			},
+			src: ['**']
 		}
 	});
 
@@ -176,4 +182,5 @@ module.exports = function (grunt) {
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma:dev"]);
 	grunt.registerTask("test-ci", ["karma:continuous"]);
+	grunt.loadNpmTasks('grunt-gh-pages');
 };
