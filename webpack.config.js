@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+require('dotenv').config({ path: './.env' });
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -29,6 +30,9 @@ module.exports = {
 		new ExtractTextPlugin("css/[name].css"),
 		new webpack.ProvidePlugin({
 			d3: "d3"
+		}),
+		new webpack.DefinePlugin({
+			"process.env": JSON.stringify(process.env)
 		})
 	],
 	externals: {
