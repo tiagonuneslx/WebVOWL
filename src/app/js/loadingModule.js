@@ -222,6 +222,9 @@ module.exports = function ( graph ){
     var urlString = String(location);
     var parameterArray = identifyParameter(urlString);
     var branch = new URLSearchParams(window.location.search).get("branch");
+    if(branch === null) {
+      branch = "main";
+    }
     console.log("HEYY branch:", branch);
     require("axios").get(process.env.BACKEND_URL + "branch/" + branch + "/vowl").then( function(r) {
       console.log("HEYY response:", r);
