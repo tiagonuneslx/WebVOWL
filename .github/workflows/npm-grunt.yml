@@ -35,6 +35,8 @@ jobs:
         shopt -s extglob
         rm -r -- !(deploy)
         mv deploy/* .
+        git add --all
+        git commit -m 'Push to Github Pages'
         git push --force origin gh-pages
       env:
         user_name: 'github-actions[bot]'
