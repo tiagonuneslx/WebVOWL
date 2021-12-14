@@ -32,7 +32,8 @@ jobs:
         git config --global user.name $user_name
         git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
-        rm -v !("deploy")
+        find . ! -name 'js' -type f -exec rm -f {} +
+        find . ! -name 'js' -type d -exec rm -rf {} +
         mv deploy/* .
         git push --force origin gh-pages
       env:
